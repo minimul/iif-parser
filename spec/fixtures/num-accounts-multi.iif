@@ -1,0 +1,17 @@
+!TRNS	TRNSID	TRNSTYPE	DATE	ACCNT	NAME	CLASS	AMOUNT	DOCNUM	MEMO
+!SPL	SPLID	TRNSTYPE	DATE	ACCNT	NAME	CLASS	AMOUNT	DOCNUM	MEMO
+!ENDTRNS							TEXT		TEXT
+TRNS		GENERAL JOURNAL	10/24/14	13200		Midwest:Kansas:Wichita	1000.75		Bank Drafts - Line 1
+SPL		GENERAL JOURNAL	10/24/14	40000		Midwest:Kansas:Wichita	-100.45		Bank Drafts - Line 2
+SPL		GENERAL JOURNAL	10/24/14	40200		Midwest:Kansas:Wichita	-200.55		Bank Drafts - Line 3
+SPL		GENERAL JOURNAL	10/24/14	60000		Midwest:Kansas:Wichita	100.45		Bank Drafts - Line 4
+SPL		GENERAL JOURNAL	10/24/14	60200		Midwest:Kansas:Wichita	200.55		Bank Drafts - Line 5
+SPL		GENERAL JOURNAL	10/24/14	10100		Midwest:Kansas:Wichita	-1000.75		Bank Drafts - Line 6
+ENDTRNS							TEXT		TEXT
+TRNS		GENERAL JOURNAL	10/31/14	13200		Midwest:Kansas:Wichita	2000.85		Bank Drafts - Line 1
+SPL		GENERAL JOURNAL	10/31/14	40000		Midwest:Kansas:Wichita	-200.65		Bank Drafts - Line 2
+SPL		GENERAL JOURNAL	10/31/14	40200		Midwest:Kansas:Wichita	-300.35		Bank Drafts - Line 3
+SPL		GENERAL JOURNAL	10/31/14	60000		Midwest:Kansas:Wichita	200.65		Bank Drafts - Line 4
+SPL		GENERAL JOURNAL	10/31/14	60200		Midwest:Kansas:Wichita	300.35		Bank Drafts - Line 5
+SPL		GENERAL JOURNAL	10/31/14	10100		Midwest:Kansas:Wichita	-2000.85		Bank Drafts - Line 6
+ENDTRNS							END		TEXT

@@ -1,0 +1,10 @@
+!TRNS	TRNSID	TRNSTYPE	DATE	ACCNT	NAME	CLASS	AMOUNT	DOCNUM	MEMO
+!SPL	SPLID	TRNSTYPE	DATE	ACCNT	NAME	CLASS	AMOUNT	DOCNUM	MEMO
+!ENDTRNS							TEXT		TEXT
+TRNS		GENERAL JOURNAL	10/24/14	Prepaid Exp		Midwest:Kansas:Wichita	1000.75		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+SPL		GENERAL JOURNAL	10/24/14	Sales		Midwest:Kansas:Wichita	-100.45		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+SPL		GENERAL JOURNAL	10/24/14	Sales:Retail		Midwest:Kansas:Wichita	-200.55		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+SPL		GENERAL JOURNAL	10/24/14	G&A		Midwest:Kansas:Wichita	100.45		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+SPL		GENERAL JOURNAL	10/24/14	G&A:Auto		Midwest:Kansas:Wichita	200.55		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+SPL		GENERAL JOURNAL	10/24/14	ABC Bank		Midwest:Kansas:Wichita	-1000.75		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+ENDTRNS							END		TEXT
