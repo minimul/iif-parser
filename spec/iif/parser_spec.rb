@@ -32,4 +32,12 @@ describe Iif::Parser do
     expect(trans.accnt).to eq 'G&A:Auto'
     expect(trans.amount).to eq 200.55 
   end
+
+  it 'entity sub accounts' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/sub-entities.iif")
+    i = Iif::Parser.new(iif)
+    trans = i.transactions[0].entries[0]
+    expect(i.transactions.size).to be 2
+    expect(trans.name).to eq "Customer 1000:Job 100"
+  end
 end
