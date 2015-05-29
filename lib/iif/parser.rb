@@ -65,7 +65,7 @@ module Iif
 
     def convert_date(date)
       ar = date.split(/[-\/]/).map(&:to_i)
-      Date.new("20#{ar.last}".to_i, ar.first, ar[2])
+      Date.new("20#{ar[2]}".to_i, ar[0], ar[1])
     end
 
     def create_transactions

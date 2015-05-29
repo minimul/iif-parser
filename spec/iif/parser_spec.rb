@@ -30,7 +30,7 @@ describe Iif::Parser do
     trans = i.transactions[0].entries[4]
     expect(i.transactions.size).to be 1
     expect(trans.accnt).to eq 'G&A:Auto'
-    expect(trans.date).to eq Date.new(2014, 10, 14)
+    expect(trans.date).to eq Date.new(2014, 10, 24)
     expect(trans.amount).to eq 200.55 
   end
 
@@ -47,7 +47,7 @@ describe Iif::Parser do
     i = Iif::Parser.new(iif)
     entries = i.transactions[0].entries
     expect(entries.size).to be 102
-    expect(entries.first.date).to eq Date.new(2015, 5, 15)
+    expect(entries.first.date).to eq Date.new(2015, 5, 1)
     expect(entries.last[:class]).to eq "HRC:Ramp/Accessibility"
   end
 end
