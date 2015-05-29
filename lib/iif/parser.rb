@@ -58,9 +58,14 @@ module Iif
       end
 
       entry.amount = BigDecimal.new(entry.amount) if entry.amount
-      entry.date = Date.strptime(entry.date, "%m/%d/%Y") if entry.date
+      entry.date = convert_date(entry.date) if entry.date
 
       @entries.push(entry)
+    end
+
+    def convert_date(date)
+      ar = date.split(/[-\/]/).map(&:to_i)
+      Date.new("20#{ar.last}".to_i, ar.first, ar[2])
     end
 
     def create_transactions

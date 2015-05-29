@@ -30,14 +30,24 @@ describe Iif::Parser do
     trans = i.transactions[0].entries[4]
     expect(i.transactions.size).to be 1
     expect(trans.accnt).to eq 'G&A:Auto'
+    expect(trans.date).to eq Date.new(2014, 10, 14)
     expect(trans.amount).to eq 200.55 
   end
 
-  it 'entity sub accounts' do
+  it 'parses entity sub accounts' do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/sub-entities.iif")
     i = Iif::Parser.new(iif)
     trans = i.transactions[0].entries[0]
     expect(i.transactions.size).to be 2
     expect(trans.name).to eq "Customer 1000:Job 100"
+  end
+
+  it 'parses many distribution lines' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/many-dist-lines.iif")
+    i = Iif::Parser.new(iif)
+    entries = i.transactions[0].entries
+    expect(entries.size).to be 102
+    expect(entries.first.date).to eq Date.new(2015, 5, 15)
+    expect(entries.last[:class]).to eq "HRC:Ramp/Accessibility"
   end
 end
