@@ -28,9 +28,11 @@ describe Iif::Parser do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/alpha-accounts-single.iif")
     i = Iif::Parser.new(iif)
     trans = i.transactions[0].entries[4]
+    trans2 = i.transactions[0].entries[5]
     expect(i.transactions.size).to be 1
     expect(trans.accnt).to eq 'G&A:Auto'
     expect(trans.date).to eq Date.new(2014, 10, 24)
+    expect(trans2.date).to eq Date.new(2014, 10, 24)
     expect(trans.amount).to eq 200.55 
   end
 
