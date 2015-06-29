@@ -52,4 +52,13 @@ describe Iif::Parser do
     expect(entries.first.date).to eq Date.new(2015, 5, 1)
     expect(entries.last[:class]).to eq "HRC:Ramp/Accessibility"
   end
+
+  it 'parses a comma delimitated file' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/comma-delim.iif")
+    i = Iif::Parser.new(iif)
+    expect(i.transactions.size).to eq 2
+    entries = i.transactions[1].entries
+    expect(entries.size).to eq 2
+    expect(entries.first.name).to eq "Bridgitte, Halifax"
+  end
 end

@@ -1,4 +1,5 @@
 require 'bigdecimal'
+require 'csv'
 require_relative 'parser/version'
 require_relative 'parser/transaction'
 require_relative 'parser/entry'
@@ -30,9 +31,16 @@ module Iif
       StringIO.new(resource)
     end
 
+    def parse_line(line)
+      if (ar = line.strip.split(/\t/)).size == 1
+        ar = CSV.parse_line(line.strip)
+      end
+      ar
+    end
+
     def parse_file(resource)
       resource.each_line do |line|
-        fields = line.strip.split(/\t/)
+        fields = parse_line(line)
         if fields[0][0] == '!'
           parse_definition(fields)
         else
