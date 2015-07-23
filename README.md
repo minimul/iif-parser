@@ -1,11 +1,50 @@
 # Iif::Parser
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/iif/parser`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The Iif::Parser gem will take Intuit QuickBooks files that are in IIF format and parse out the transactions (`!TRNS` and `!ENDTRNS` blocks) sections into plain Ruby objects.
+#### For example, take this IIF formatted file ..
+```
+!TRNS	TRNSID	TRNSTYPE	DATE	ACCNT	NAME	CLASS	AMOUNT	DOCNUM	MEMO
+!SPL	SPLID	TRNSTYPE	DATE	ACCNT	NAME	CLASS	AMOUNT	DOCNUM	MEMO
+!ENDTRNS							TEXT		TEXT
+TRNS		GENERAL JOURNAL	10/24/14	Prepaid Exp		Midwest:Kansas:Wichita	1000.75		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+SPL		GENERAL JOURNAL	10/24/14	ABC Bank		Midwest:Kansas:Wichita	-1000.75		Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita
+ENDTRNS							END		TEXT
+```
+#### .. and then pump it into a new instance of Iif::Parser
+```ruby
+i = Iif::Parser.new(iif)
+p i.transactions.size
+# => 1
+p i.transactions.first.entries.size
+# => 2
+```
+#### .. and it will be converted into nice Ruby objects!
+```ruby
+puts i.transactions.first.entries
+#<Iif::Entry type="TRNS", 
+  trnsid="", 
+  trnstype="GENERAL JOURNAL", 
+  date=#<Date: 2014-10-24 ((2456955j,0s,0n),+0s,2299161j)>, 
+  accnt="Prepaid Exp", 
+  name="", 
+  class="Midwest:Kansas:Wichita", 
+  amount=#<BigDecimal:7fccd1043b20,'0.100075E4',18(18)>, 
+  docnum="", 
+  memo="Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita">
+#<Iif::Entry type="SPL", 
+  splid="", 
+  trnstype="GENERAL JOURNAL", 
+  date=#<Date: 2014-10-24 ((2456955j,0s,0n),+0s,2299161j)>, 
+  accnt="ABC Bank", 
+  name="", 
+  class="Midwest:Kansas:Wichita", 
+  amount=#<BigDecimal:7fccd0a09a48,'-0.100075E4',18(18)>, 
+  docnum="", 
+  memo="Bank Drafts - 10/24/14 - Midwest:Kansas:Wichita">
+```
+#### See the [specs](https://github.com/minimul/iif-parser/blob/master/spec/iif/parser_spec.rb) for more examples
 
 ## Installation
-
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -19,16 +58,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install iif-parser
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
