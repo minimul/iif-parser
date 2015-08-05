@@ -32,14 +32,15 @@ module Iif
     end
 
     def parse_line(line)
-      if (ar = line.strip.split(/\t/)).size == 1
-        ar = CSV.parse_line(line.strip)
+      if (ar = line.split(/\t/)).size == 1
+        ar = CSV.parse_line(line).map { |i| i == nil ? "" : i }
       end
       ar
     end
 
     def parse_file(resource)
       resource.each_line do |line|
+        next if line.strip! == ""
         fields = parse_line(line)
         if fields[0][0] == '!'
           parse_definition(fields)
