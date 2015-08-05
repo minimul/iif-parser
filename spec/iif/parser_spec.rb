@@ -61,4 +61,13 @@ describe Iif::Parser do
     expect(entries.size).to eq 2
     expect(entries.first.name).to eq "Bridgitte, Halifax"
   end
+
+  it 'parses a comma delimitated files with blank rows and blank header values' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/blank-rows-and-comma-header-blanks.iif")
+    i = Iif::Parser.new(iif)
+    expect(i.transactions.size).to eq 2
+    entries = i.transactions[0].entries
+    expect(entries.size).to eq 6
+    expect(entries[3][:amount]).to eq 137.63
+  end
 end
