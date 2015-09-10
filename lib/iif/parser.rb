@@ -67,7 +67,7 @@ module Iif
       end
 
       entry.amount = BigDecimal.new(entry.amount) if entry.amount
-      entry.date = convert_date(entry.date) if entry.date
+      entry.date = convert_date(entry.date) if entry.date and not entry.date == ""
 
       @entries.push(entry)
     end

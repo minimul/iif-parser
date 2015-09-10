@@ -70,4 +70,14 @@ describe Iif::Parser do
     expect(entries.size).to eq 6
     expect(entries[3][:amount]).to eq 137.63
   end
+
+  it 'parses a file with blank date rows' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/blank-date.iif")
+    i = Iif::Parser.new(iif)
+    expect(i.transactions.size).to eq 1
+    entries = i.transactions[0].entries
+    expect(entries.size).to eq 6
+    expect(entries[0].date).to_not eq ""
+    expect(entries[2].date).to eq ""
+  end
 end
