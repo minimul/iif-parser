@@ -1,0 +1,94 @@
+!TRNS	TRNSTYPE	DATE	MEMO	CLASS	AMOUNT	ACCNT
+!SPL	TRNSTYPE	DATE	MEMO	CLASS	AMOUNT	ACCNT
+!ENDTRNS	  	  	  	  	  	  
+TRNS	GENERAL JOURNAL	09/03/15	                         	Corporate	-5,712.93	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	Fees Impound -  9/03/2015	Corporate	-85.00	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	Tax Offset               	Corporate	-4,950.37	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	SMITH, JANE E         	Corporate	-1,071.03	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	GUNN, GUNNER S          	Corporate	-431.51	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	MILLER, JANE             	Corporate	-224.83	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	MILLER, JOE            	Corporate	-832.56	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	SMITH, JANE             	Corporate	-1,017.25	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	JOHNSON, JANE M      	Corporate	-694.12	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	SMITH, MEGHAN O         	Corporate	-217.61	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	O'CONNOR, JANE       	Corporate	-266.76	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	JOHNSON, KATIE R          	Corporate	-326.39	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	SMITH, ED M      	Corporate	-831.31	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	CONNOR, SARA A           	Corporate	-1,424.08	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	DOE, JOHN B        	Corporate	-1,047.96	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	DOE, JANE      	Corporate	-624.80	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	DOE, JANE      	Corporate	-69.42	Chase Checking OP
+SPL	GENERAL JOURNAL	09/03/15	SALARY                   	Corporate	1,346.16	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Corporate	83.47	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Corporate	19.52	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Lincoln Park	46.73	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	FUTA                     	Lincoln Park	16.45	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Lincoln Park	199.83	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Lincoln Park	24.18	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	REGULAR                  	Lincoln Park	3,223.06	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	REGULAR                  	Oak Park	2,242.93	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	REGULAR                  	Oak Park	3,100.63	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	REGULAR                  	Oak Park	1,652.87	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	O/TIME                   	Oak Park	20.44	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Oak Park	18.38	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Oak Park	21.53	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Oak Park	15.02	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	Service Fees - Debit     	Oak Park	85.00	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Oak Park	316.91	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Oak Park	124.18	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Oak Park	95.00	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Oak Park	74.11	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Oak Park	29.04	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Oak Park	406.21	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	SALARY                   	Oak Park	4,288.48	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	SALARY                   	Oak Park	1,340.00	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	TIPS                     	Oak Park	670.97	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	TIPS                     	Oak Park	350.05	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	FUTA                     	Oak Park	12.86	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	FUTA                     	Oak Park	3.92	Payroll Expenses
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Corporate	-19.52	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FICA                     	Corporate	-83.47	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FED WTH                  	Corporate	-124.76	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	MEDFICA                  	Corporate	-19.52	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	STATE                    	Corporate	-47.38	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Corporate	-83.47	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Lincoln Park	-199.83	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FICA                     	Lincoln Park	-199.83	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	STATE                    	Lincoln Park	-105.35	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FUTA                     	Lincoln Park	-16.45	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FED WTH                  	Lincoln Park	-101.03	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	MEDFICA                  	Lincoln Park	-46.73	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Lincoln Park	-46.73	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Lincoln Park	-24.18	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Oak Park	-18.38	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Oak Park	-21.53	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Oak Park	-95.00	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Oak Park	-74.11	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO MEDC                  	Oak Park	-29.04	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FIMC                     	Oak Park	264.40	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	IL                       	Oak Park	648.44	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	ILUI                     	Oak Park	79.11	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO UNEM                  	Oak Park	-15.02	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FIMD                     	Oak Park	264.40	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FICA                     	Oak Park	1,130.60	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FIER                     	Oak Park	1,130.60	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FUTA                     	Oak Park	33.23	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FW                       	Oak Park	1,399.59	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	STATE                    	Oak Park	-236.39	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	STATE                    	Oak Park	-179.29	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	STATE                    	Oak Park	-80.03	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	MEDFICA                  	Oak Park	-95.00	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	MEDFICA                  	Oak Park	-74.11	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	MEDFICA                  	Oak Park	-29.04	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FED WTH                  	Oak Park	-657.73	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FED WTH                  	Oak Park	-387.40	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FED WTH                  	Oak Park	-128.67	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FUTA                     	Oak Park	-12.86	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FUTA                     	Oak Park	-3.92	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Oak Park	-406.21	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Oak Park	-316.91	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	CO FICA                  	Oak Park	-124.18	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FICA                     	Oak Park	-406.21	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FICA                     	Oak Park	-316.91	Payroll Liabilities
+SPL	GENERAL JOURNAL	09/03/15	FICA                     	Oak Park	-124.18	Payroll Liabilities
+ENDTRNS	  	  	  	  	  	  

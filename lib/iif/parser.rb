@@ -66,7 +66,7 @@ module Iif
         entry.send(definition[idx] + "=", field)
       end
 
-      entry.amount = BigDecimal.new(entry.amount) if entry.amount
+      entry.amount = BigDecimal.new(entry.amount.gsub(',','')) if entry.amount
       entry.date = convert_date(entry.date) if entry.date and not entry.date == ""
 
       @entries.push(entry)

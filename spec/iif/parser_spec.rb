@@ -80,4 +80,11 @@ describe Iif::Parser do
     expect(entries[0].date).to_not eq ""
     expect(entries[2].date).to eq ""
   end
+
+  it 'parses amounts with commas' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/commas-in-amounts.iif")
+    i = Iif::Parser.new(iif)
+    entries = i.transactions[0].entries
+    expect(entries.first.amount).to eq -5712.93
+  end
 end
