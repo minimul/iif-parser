@@ -87,4 +87,14 @@ describe Iif::Parser do
     entries = i.transactions[0].entries
     expect(entries.first.amount).to eq -5712.93
   end
+
+  it 'memo should not have starting and ending double quotes and not process blank or nil amounts' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/memo-quotes.iif")
+    i = Iif::Parser.new(iif)
+    entries = i.transactions[0].entries
+    expect(entries[2].memo).to_not match /\"/
+    expect(entries[3].memo).to match /\"/
+    expect(entries[0].amount).to_not eq 0.0
+    expect(entries[1].amount).to_not eq 0.0
+  end
 end
