@@ -63,6 +63,7 @@ module Iif
       entry.type = fields[0]
       
       fields[1..-1].each_with_index do |field, idx|
+        field.lstrip! if field.is_a?(String)
         entry.send(definition[idx] + "=", field)
       end
       entry.amount = BigDecimal.new(entry.amount.gsub(',','')) unless entry.amount.to_s == ""
