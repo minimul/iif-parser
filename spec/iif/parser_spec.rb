@@ -98,12 +98,14 @@ describe Iif::Parser do
     expect(entries[1].amount).to_not eq 0.0
   end
 
-  it 'removes leading spaces in values' do
+  it 'removes leading and trailing spaces in values' do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/spaces.iif")
     i = Iif::Parser.new(iif)
     entries = i.transactions[0].entries
     expect(entries[0].accnt).to_not match /^\s/
+    expect(entries[2].trnstype).to_not match /\s$/
     expect(entries[3].trnstype).to_not match /^\s/
     expect(entries[6].memo).to_not match /^\s/
   end
+
 end
