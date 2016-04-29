@@ -66,7 +66,7 @@ module Iif
         field.strip! if field.is_a?(String)
         entry.send(definition[idx] + "=", field)
       end
-      entry.amount = BigDecimal.new(entry.amount.gsub(',','')) unless entry.amount.to_s == ""
+      entry.amount = BigDecimal.new(entry.amount.gsub(/(,|")/,'')) unless entry.amount.to_s == ""
       entry.date = convert_date(entry.date) if entry.date and not entry.date == ""
       entry.memo.gsub!(/\A"|"\Z/, '') if entry.memo
 
