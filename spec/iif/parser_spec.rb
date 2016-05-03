@@ -71,6 +71,15 @@ describe Iif::Parser do
     expect(entries[3][:amount]).to eq 137.63
   end
 
+  it 'skip values that do not have corresponding header values' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/no-matching-header-for-value.iif")
+    i = Iif::Parser.new(iif)
+    expect(i.transactions.size).to eq 1
+    entries = i.transactions[0].entries
+    expect(entries[0].amount).to eq 20000
+    expect(entries[1].amount).to eq -20000
+  end
+
   it 'parses a file with blank date rows' do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/blank-date.iif")
     i = Iif::Parser.new(iif)
