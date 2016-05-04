@@ -63,6 +63,7 @@ module Iif
       entry.type = fields[0]
       
       fields[1..-1].each_with_index do |field, idx|
+        next unless definition[idx]
         field.strip! if field.is_a?(String)
         entry.send(definition[idx] + "=", field)
       end
