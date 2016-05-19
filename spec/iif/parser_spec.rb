@@ -115,4 +115,12 @@ describe Iif::Parser do
     expect(e.amount).to eq 1776.23
   end
 
+  it 'handles dos ^M carriage returns' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/dos-carriage-returns.iif")
+    i = Iif::Parser.new(iif)
+    expect(i.transactions.size).to eq 13
+    entries = i.transactions[0].entries
+    expect(entries.size).to eq 2
+  end
+
 end

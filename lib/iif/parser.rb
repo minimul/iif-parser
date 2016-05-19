@@ -14,7 +14,7 @@ module Iif
       @definitions = {}
       @entries = []
       @transactions = []
-
+      resource.gsub!(/\r\n?/, "\n") # dos to unix EOL conversion
       resource = open_resource(resource)
       resource.rewind
       parse_file(resource)
