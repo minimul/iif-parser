@@ -123,4 +123,9 @@ describe Iif::Parser do
     expect(entries.size).to eq 2
   end
 
+  it 'skip definitions that do not match like VTYPE' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/vtype.iif")
+    expect { i = Iif::Parser.new(iif) }.to_not raise_error
+  end
+
 end
