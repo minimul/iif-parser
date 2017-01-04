@@ -128,4 +128,14 @@ describe Iif::Parser do
     expect { i = Iif::Parser.new(iif) }.to_not raise_error
   end
 
+  it 'parse tab deliminated file which fields are all double quoted' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/tab-delim-all-quoted.iif")
+    i = Iif::Parser.new(iif)
+    entries = i.transactions[1].entries
+    e = entries[1]
+    expect(e.name).to eq "Peter Blue"
+    expect(e.amount).to eq 2300.00
+  end
+
+
 end

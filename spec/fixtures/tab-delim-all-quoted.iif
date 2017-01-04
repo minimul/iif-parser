@@ -1,0 +1,19 @@
+!TRNS	DATE	ACCNT	NAME	CLASS	AMOUNT	MEMO
+!SPL	DATE	ACCNT	NAME	AMOUNT	MEMO
+!ENDTRNS
+TRNS	"1/12/2015"	"eCovalence.Paypal"	"Shak Shakti"	"Website Payment"	3,999.50	
+SPL	"1/12/2015"	"PayPal Income"	"Shak Shakti"	-4,000.00	
+SPL	"1/12/2015"	"PayPal Fees"	Fee	0.50	
+ENDTRNS
+TRNS	"1/12/2015"	"eCovalence.Paypal"	"Peter Blue"	"General Payment"	-2,300.00	
+SPL	"1/12/2015"	"PayPal Fees"	"Peter Blue"	2,300.00	
+ENDTRNS
+TRNS	"1/13/2015"	"eCovalence.Paypal"	"Color Creative, LLC."	"General Payment"	-950.00	
+SPL	"1/13/2015"	"PayPal Fees"	"Color Creative, LLC."	950.00	
+ENDTRNS
+TRNS	"1/14/2015"	"eCovalence.Paypal"	""	"General Withdrawal"	-749.50	
+SPL	"1/14/2015"	"PayPal Fees"	""	749.50	
+ENDTRNS
+TRNS	"1/16/2015"	"eCovalence.Paypal"	"Geraldine Doe"	"General Payment"	-220.00	
+SPL	"1/16/2015"	"PayPal Fees"	"Geraldine Doe"	220.00	
+ENDTRNS

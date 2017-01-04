@@ -58,19 +58,21 @@ module Iif
 
     def parse_data(fields)
       definition = @definitions[fields[0]]
-
       entry = Entry.new
       entry.type = fields[0]
       fields[1..-1].each_with_index do |field, idx|
         next unless definition and definition[idx]
-        field.strip! if field.is_a?(String)
-        entry.send(definition[idx] + "=", field)
+        entry.send(definition[idx] + "=", clean_field(field))
       end
-      entry.amount = BigDecimal.new(entry.amount.gsub(/(,|")/,'')) unless entry.amount.to_s == ""
+      entry.amount = BigDecimal.new(entry.amount.gsub(/(,)/,'')) unless entry.amount.to_s == ""
       entry.date = convert_date(entry.date) if entry.date and not entry.date == ""
-      entry.memo.gsub!(/\A"|"\Z/, '') if entry.memo
-
       @entries.push(entry)
+    end
+
+    def clean_field(field)
+      field.gsub!(/\A"|"\Z/, '')
+      field.strip! if field.is_a?(String)
+      field
     end
 
     def convert_date(date)
