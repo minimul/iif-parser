@@ -137,5 +137,11 @@ describe Iif::Parser do
     expect(e.amount).to eq 2300.00
   end
 
+  it 'parses invalid encodings' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/windows-1252.iif")
+    i = Iif::Parser.new(iif)
+    entries = i.transactions[2].entries
+    expect(entries[0].memo).to eq "1 Ticket for “ACME ‘School’ Beans\"\" Symposium |"
+  end
 
 end
