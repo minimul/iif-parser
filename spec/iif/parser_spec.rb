@@ -128,4 +128,14 @@ describe Iif::Parser do
     expect { i = Iif::Parser.new(iif) }.to_not raise_error
   end
 
+  it 'parse deposits' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/mixteco-1.iif")
+    i = Iif::Parser.new(iif)
+    entries = i.transactions[0].entries
+    ap entries
+    ap i.transactions.size
+    #e = entries.first
+    #expect(e.amount).to eq 1776.23
+  end
+
 end

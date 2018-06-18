@@ -14,6 +14,8 @@ module Iif
       @definitions = {}
       @entries = []
       @transactions = []
+      #ap 
+      #resource.scrub! unless resource.force_encoding('UTF-8').valid_encoding?
       resource.gsub!(/\r\n?/, "\n") # dos to unix EOL conversion
       resource = open_resource(resource)
       resource.rewind
