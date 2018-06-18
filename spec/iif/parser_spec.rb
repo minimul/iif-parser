@@ -128,14 +128,11 @@ describe Iif::Parser do
     expect { i = Iif::Parser.new(iif) }.to_not raise_error
   end
 
-  it 'parse deposits' do
-    iif = File.read(File.dirname(__FILE__) + "/../fixtures/mixteco-1.iif")
+  it 'parse invalid encodings' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/windows-1252.iif")
     i = Iif::Parser.new(iif)
-    entries = i.transactions[0].entries
-    ap entries
-    ap i.transactions.size
-    #e = entries.first
-    #expect(e.amount).to eq 1776.23
+    entries = i.transactions[2].entries
+    expect(entries[0].memo).to eq "1 Ticket for “ACME ‘School’ Beans\"\" Symposium | "
   end
 
 end

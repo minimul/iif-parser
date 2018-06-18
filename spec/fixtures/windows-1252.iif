@@ -1,0 +1,25 @@
+!ACCNT	NAME	ACCNTTYPE	SCD				
+ACCNT	Stripe Account	BANK					
+ACCNT	Stripe Payment Processing Fees	EXP					
+ACCNT	Stripe Returns	INC					
+ACCNT	Stripe Sales	INC					
+ACCNT	Stripe Checking Account	BANK					
+ACCNT	Stripe Third-party Account	EXP	561				
+ACCNT	Stripe Other Fees	EXP					
+ACCNT	Stripe Processing Fees Adj	EXP					
+ACCNT	Stripe Other Income	INC					
+!VEND	NAME	1099					
+!TRNS	TRNSID	TRNSTYPE	DATE	ACCNT	AMOUNT	MEMO	NAME
+!SPL	SPLID	TRNSTYPE	DATE	ACCNT	AMOUNT	MEMO	NAME
+!ENDTRNS							
+TRNS		DEPOSIT	4/23/18	Stripe Checking Account	9.41	Transfer ID: po_1Cxxxxxxxxxxxxxxxd3GNvT | STRIPE TRANSFER	
+SPL		DEPOSIT	4/23/18	Stripe Account	-9.41	Transfer ID: po_1Cxxxxxxxxxxphop1vd3GNvT | STRIPE TRANSFER	
+ENDTRNS							
+TRNS		GENERAL JOURNAL	4/30/18	Stripe Sales	-8	Materials Bag | Charge for doe@example.org	Casey Doe
+SPL		GENERAL JOURNAL	4/30/18	Stripe Payment Processing Fees	0.53	Fees for charge ID: ch_1CMivW4vMPErphopBigTSzFL	
+SPL		GENERAL JOURNAL	4/30/18	Stripe Account	7.47	Net for charge ID: ch_1CMivW4vMPErphopBigTSzFL	
+ENDTRNS							
+TRNS		GENERAL JOURNAL	4/19/18	Stripe Sales	-35	"1 Ticket for “ACME ‘School’ Beans"" Symposium | "	Linda Doe 
+SPL		GENERAL JOURNAL	4/19/18	Stripe Payment Processing Fees	1.32	Fees for charge ID: ch_1xxxxxxxxxxxxxxxxx9mQXRo	
+SPL		GENERAL JOURNAL	4/19/18	Stripe Account	33.68	Net for charge ID: ch_1xxxxxxxxxxxxxxxxx9mQXRo	
+ENDTRNS							
