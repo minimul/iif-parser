@@ -1,5 +1,6 @@
 require 'bigdecimal'
 require 'csv'
+require 'rchardet'
 require_relative 'parser/version'
 require_relative 'parser/transaction'
 require_relative 'parser/entry'
@@ -14,6 +15,10 @@ module Iif
       @definitions = {}
       @entries = []
       @transactions = []
+      unless resource.force_encoding('UTF-8').valid_encoding?
+        cd = CharDet.detect(resource)
+        resource.encode!("UTF-8", cd["encoding"])
+      end
       resource.gsub!(/\r\n?/, "\n") # dos to unix EOL conversion
       resource = open_resource(resource)
       resource.rewind

@@ -17,6 +17,8 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "rchardet"
+
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "bundler", "~> 1.9"
