@@ -81,6 +81,7 @@ module Iif
     end
 
     def convert_date(date)
+      return Date.parse(date) if date =~ /^\d{4}-[01]\d-[0123]\d$/
       ar = date.split(/[-\/]/).map(&:to_i)
       year = ar[2].to_s.size == 4 ? ar[2] : "20#{ar[2]}"
       Date.new(year.to_i, ar[0], ar[1])
