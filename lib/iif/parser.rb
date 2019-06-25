@@ -7,11 +7,9 @@ require_relative 'parser/entry'
 
 module Iif
   class Parser
-    attr_accessor :definitions
-    attr_accessor :entries
-    attr_accessor :transactions
+    attr_accessor :definitions, :entries, :transactions
 
-    def initialize(resource)
+    def initialize(resource, opts = {})
       @definitions = {}
       @entries = []
       @transactions = []
@@ -22,7 +20,7 @@ module Iif
       resource.gsub!(/\r\n?/, "\n") # dos to unix EOL conversion
       resource = open_resource(resource)
       resource.rewind
-      parse_file(resource)
+      parse_file(resource, opts[:csv_parse_line_options] || {})
       create_transactions
     end
 
@@ -36,17 +34,20 @@ module Iif
       StringIO.new(resource)
     end
 
-    def parse_line(line)
-      if (ar = line.split(/\t/)).size == 1
-        ar = CSV.parse_line(line).map { |i| i == nil ? "" : i }
+    def parse_line(line, opts = {})
+      ar = line.split(/\t/)
+      if ar.size == 1
+        ar = CSV.parse_line(line, opts).map { |i| i == nil ? "" : i }
+      else
+        ar.map! { |value| clean_field(value) }
       end
       ar
     end
 
-    def parse_file(resource)
+    def parse_file(resource, opts = {})
       resource.each_line do |line|
         next if line.strip! == ""
-        fields = parse_line(line)
+        fields = parse_line(line, opts)
         if fields[0][0] == '!'
           parse_definition(fields)
         else
@@ -67,7 +68,7 @@ module Iif
       entry.type = fields[0]
       fields[1..-1].each_with_index do |field, idx|
         next unless definition and definition[idx]
-        entry.send(definition[idx] + "=", clean_field(field))
+        entry.send(definition[idx] + "=", field)
       end
       entry.amount = BigDecimal.new(entry.amount.gsub(/(,)/,'')) unless entry.amount.to_s == ""
       entry.date = convert_date(entry.date) if entry.date and not entry.date == ""

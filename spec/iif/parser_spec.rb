@@ -144,4 +144,23 @@ describe Iif::Parser do
     expect(entries[0].memo).to eq "1 Ticket for “ACME ‘School’ Beans\"\" Symposium |"
   end
 
+  it 'parses all header values quoted' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/header-quotes.iif")
+    i = Iif::Parser.new(iif)
+    entries = i.transactions.first.entries
+    expect(entries.size).to eq 62
+    entry = entries[47]
+    expect(entry.accnt).to eq "90035"
+    expect(entry.memo).to match /^Payroll entry/
+  end
+
+  if RUBY_VERSION =~ /^2\.4/
+
+    it 'parses using Ruby 2.4 liberal_parsing option' do
+      iif = File.read(File.dirname(__FILE__) + "/../fixtures/liberal-parsing.iif")
+      i = Iif::Parser.new(iif, { csv_parse_line_options: { liberal_parsing: true } })
+      entries = i.transactions.first.entries
+      expect(entries[0].memo).to match "6\" wrap around"
+    end
+  end
 end
