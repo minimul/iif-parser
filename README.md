@@ -51,6 +51,15 @@ Add this line to your application's Gemfile:
 gem 'iif-parser'
 ```
 
+### CSV parse line options
+
+Non tab-delimited IIF files are parsed with `CSV.parse_line`. You can set options for `CSV.parse_line` like this:
+```ruby
+iif_file = File.read(File.dirname(__FILE__) + "/../fixtures/liberal-parsing.iif")
+iif_parser = Iif::Parser.new(iif_file, { csv_parse_line_options: { liberal_parsing: true } })
+```
+
+
 And then execute:
 
     $ bundle

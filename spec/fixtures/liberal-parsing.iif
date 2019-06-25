@@ -1,0 +1,8 @@
+!TRNS,TRNSTYPE,DATE,ACCNT,CLASS,AMOUNT,MEMO,NAME
+!SPL,TRNSTYPE,DATE,ACCNT,CLASS,AMOUNT,MEMO,NAME
+!ENDTRNS
+TRNS,GENERAL JOURNAL,03/07/2019,113100  ,                    ,156.70      ,143731 : Adjust : Monroeville Mall purchased 6" wrap around- Mele did work-,UB Transfer         
+ENDTRNS
+TRNS,GENERAL JOURNAL,03/07/2019,100000  ,                    ,6792.59     ,143743 : Pay : Checks 3-7-19 Tex                                           ,                    
+SPL,GENERAL JOURNAL,03/07/2019,113100  ,                    ,-6792.59    ,44933 : Pay : Checks 3-7-19 Tex                                            ,UB Transfer         
+ENDTRNS
