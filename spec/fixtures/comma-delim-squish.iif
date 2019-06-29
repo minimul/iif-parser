@@ -1,0 +1,8 @@
+!TRNS,TRNSTYPE,DATE,ACCNT,CLASS,AMOUNT,MEMO,NAME
+!SPL,TRNSTYPE,DATE,ACCNT,CLASS,AMOUNT,MEMO,NAME
+!ENDTRNS
+TRNS,GENERAL JOURNAL,06/17/2019, 100000  ,                    ,75.00       ,157063 : Bill : Final Billing for 9640-2 ACME Office Bldg   ,                    
+SPL,GENERAL JOURNAL,06/17/2019,111400  ,                    ,-75.00      ,46137 : Bill : Final Billing for 9640-2 ACME Office Bldg    ,                    
+SPL,GENERAL JOURNAL,06/17/2019,113100  ,                    ,-75.00      ,46137 : Bill : Final Billing for 9640-2 ACME Office Bldg    ,UB Transfer         
+SPL,GENERAL JOURNAL,06/17/2019,214100  ,                    ,75.00       ,157063 : Bill : Final Billing for 9640-2 ACME Office Bldg   ,                    
+ENDTRNS
