@@ -64,6 +64,12 @@ iif_parser = Iif::Parser.new(iif_file, { csv_parse_line_options: { liberal_parsi
 options = { csv_parse_line_options: { converters: -> (f) { f ? f.strip : nil } } }
 i = Iif::Parser.new(iif, options)
 ```
+**OR COMBINE OPTIONS**
+
+```ruby
+options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
+i = Iif::Parser.new(iif, options)
+```
 
 And then execute:
 

@@ -144,7 +144,7 @@ describe Iif::Parser do
     expect(entries[0].memo).to eq "1 Ticket for “ACME ‘School’ Beans\"\" Symposium |"
   end
 
-  it 'parses values using a csv parser coverter option to strip leading a trailing white space' do
+  it 'parses values using a csv parser line option to strip leading a trailing white space' do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/comma-delim-squish.iif")
     options = { csv_parse_line_options: { converters: -> (f) { f ? f.strip : nil } } }
     i = Iif::Parser.new(iif, options)
@@ -165,9 +165,10 @@ describe Iif::Parser do
 
   if RUBY_VERSION =~ /^2\.4/
 
-    it 'parses using Ruby 2.4 liberal_parsing option' do
+    it 'parses using the Ruby 2.4s CSV parse line option named liberal_parsing' do
       iif = File.read(File.dirname(__FILE__) + "/../fixtures/liberal-parsing.iif")
-      i = Iif::Parser.new(iif, { csv_parse_line_options: { liberal_parsing: true } })
+      options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
+      i = Iif::Parser.new(iif, options)
       entries = i.transactions.first.entries
       expect(entries[0].memo).to match "6\" wrap around"
     end
