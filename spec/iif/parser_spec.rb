@@ -163,14 +163,11 @@ describe Iif::Parser do
     expect(entry.memo).to match /^Payroll entry/
   end
 
-  if RUBY_VERSION =~ /^2\.4/
-
-    it 'parses using the Ruby 2.4s CSV parse line option named liberal_parsing' do
-      iif = File.read(File.dirname(__FILE__) + "/../fixtures/liberal-parsing.iif")
-      options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
-      i = Iif::Parser.new(iif, options)
-      entries = i.transactions.first.entries
-      expect(entries[0].memo).to match "6\" wrap around"
-    end
+  it 'parses using the CSV parse line option named liberal_parsing' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/liberal-parsing.iif")
+    options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
+    i = Iif::Parser.new(iif, options)
+    entries = i.transactions.first.entries
+    expect(entries[0].memo).to match "6\" wrap around"
   end
 end
