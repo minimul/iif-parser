@@ -44,6 +44,8 @@ puts i.transactions.first.entries
 ```
 #### See the [specs](https://github.com/minimul/iif-parser/blob/master/spec/iif/parser_spec.rb) for more examples
 
+#### Ruby support is >= 2.4
+
 ## Installation
 Add this line to your application's Gemfile:
 

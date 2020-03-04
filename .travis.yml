@@ -1,3 +1,16 @@
+sudo: false
 language: ruby
 rvm:
-  - 2.2.1
+  - 2.4
+  - 2.5
+  - 2.6
+
+before_install:
+  - gem install bundler
+
+script:
+  - bundle exec rake
+
+notifications:
+  email:
+    - christian@minimul.com
