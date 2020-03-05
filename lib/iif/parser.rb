@@ -70,7 +70,7 @@ module Iif
         next unless definition and definition[idx]
         entry.send(definition[idx] + "=", field)
       end
-      entry.amount = BigDecimal.new(entry.amount.gsub(/(,)/,'')) unless entry.amount.to_s == ""
+      entry.amount = BigDecimal(entry.amount.gsub(/(,)/,'')) unless entry.amount.to_s == ""
       entry.date = convert_date(entry.date) if entry.date and not entry.date == ""
       @entries.push(entry)
     end
