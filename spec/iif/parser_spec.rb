@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'tempfile'
 
 describe Iif::Parser do
 
@@ -169,5 +170,14 @@ describe Iif::Parser do
     i = Iif::Parser.new(iif, options)
     entries = i.transactions.first.entries
     expect(entries[0].memo).to match "6\" wrap around"
+  end
+
+  it 'properly converts amounts to properly understood amounts' do
+    i = Iif::Parser.new(File.read(Tempfile.new))
+    expect(i.convert_amount("--344.99")).to eq -344.99
+    expect(i.convert_amount("-344.99")).to eq -344.99
+    expect(i.convert_amount("(344.99)")).to eq -344.99
+    expect { i.convert_amount("(344.99") }.to raise_error ArgumentError
+    expect { i.convert_amount("3,344.99)") }.to raise_error ArgumentError
   end
 end

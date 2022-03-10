@@ -70,7 +70,7 @@ module Iif
         next unless definition and definition[idx]
         entry.send(definition[idx] + "=", field)
       end
-      entry.amount = BigDecimal(entry.amount.gsub(/(,)/,'')) unless entry.amount.to_s == ""
+      entry.amount = convert_amount(entry.amount) unless entry.amount.to_s == ""
       entry.date = convert_date(entry.date) if entry.date and not entry.date == ""
       @entries.push(entry)
     end
@@ -86,6 +86,17 @@ module Iif
       ar = date.split(/[-\/]/).map(&:to_i)
       year = ar[2].to_s.size == 4 ? ar[2] : "20#{ar[2]}"
       Date.new(year.to_i, ar[0], ar[1])
+    end
+
+    def convert_amount(amount)
+      amount.gsub!(/(,)/,'')
+      if amount =~ /^--/
+        amount.slice!(0)
+      elsif amount =~ /^\(.*\)$/
+        amount.gsub!(/[()]/,'')
+        amount.prepend("-")
+      end
+      BigDecimal(amount)
     end
 
     def create_transactions
