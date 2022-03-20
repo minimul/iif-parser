@@ -37,7 +37,7 @@ module Iif
     def parse_line(line, opts = {})
       ar = line.split(/\t/)
       if ar.size == 1
-        ar = CSV.parse_line(line, opts).map { |i| i == nil ? "" : i }
+        ar = CSV.parse_line(line, **opts).map { |i| i == nil ? "" : i }
       else
         ar.map! { |value| clean_field(value) }
       end
