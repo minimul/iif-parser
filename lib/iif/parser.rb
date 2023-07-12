@@ -63,6 +63,7 @@ module Iif
     end
 
     def parse_data(fields)
+      return if @entries.last&.type == 'ENDTRNS' && fields[0] == 'ENDTRNS' # found a repeating ENDTRNS
       definition = @definitions[fields[0]]
       entry = Entry.new
       entry.type = fields[0]
@@ -104,9 +105,7 @@ module Iif
       in_transaction = false
 
       @entries.each do |entry|
-        
         case entry.type
-
         when "TRNS"
           if in_transaction
             @transactions.push(transaction)
@@ -114,11 +113,9 @@ module Iif
           end
           transaction = Transaction.new
           in_transaction = true
-          
         when "ENDTRNS"
           @transactions.push(transaction)
           in_transaction = false
-
         end
 
         transaction.entries.push(entry) if in_transaction
