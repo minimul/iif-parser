@@ -181,7 +181,7 @@ describe Iif::Parser do
     expect { i.convert_amount("3,344.99)") }.to raise_error ArgumentError
   end
 
-  it 'parses even though there is a none matching endtrans' do
+  it 'parses properly ignoring improper and invalid repeating ENDTRNS lines' do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/repeating-endtrans.iif")
     options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
     i = Iif::Parser.new(iif, options)
