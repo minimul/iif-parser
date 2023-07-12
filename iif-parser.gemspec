@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "rchardet"
 
   spec.add_development_dependency "rspec", ">= 3.4.4"
+  spec.add_development_dependency "tabulo", "~> 2.0"
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "bundler", ">= 1.9"
   spec.add_development_dependency "rake", ">= 12.3.3"
