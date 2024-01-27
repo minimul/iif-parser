@@ -183,8 +183,11 @@ describe Iif::Parser do
 
   it 'parses properly ignoring improper and invalid repeating ENDTRNS lines' do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/repeating-endtrans.iif")
+    #iif = File.read('/Users/minimul/Downloads/8149_25_20_5088_QuickbooksGLSummaryExport_20244402124434.iif')
     options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
     i = Iif::Parser.new(iif, options)
+    ap i.transactions.size
+    # ap i.transactions.last
 
     expect(find_all_transactions_by_amount(i.transactions, '-38860.64').size).to eq 1
     expect(find_all_transactions_by_amount(i.transactions, '18681.77').size).to eq 1
