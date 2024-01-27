@@ -185,9 +185,19 @@ describe Iif::Parser do
     iif = File.read(File.dirname(__FILE__) + "/../fixtures/repeating-endtrans.iif")
     options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
     i = Iif::Parser.new(iif, options)
-
     expect(find_all_transactions_by_amount(i.transactions, '-38860.64').size).to eq 1
     expect(find_all_transactions_by_amount(i.transactions, '18681.77').size).to eq 1
     expect(find_all_transactions_by_amount(i.transactions, '17972.44').size).to eq 1
+  end
+
+  it 'parses properly ignoring improper and invalid repeating ENDTRNS lines another example' do
+    iif = File.read(File.dirname(__FILE__) + "/../fixtures/repeating-endtrans-another-example.iif")
+    options = { csv_parse_line_options: { liberal_parsing: true, converters: -> (f) { f ? f.strip : nil } } }
+    i = Iif::Parser.new(iif, options)
+    expect(i.transactions.size).to eq 1
+
+    expect(find_all_transactions_by_amount(i.transactions, '-273.55').size).to eq 1
+    expect(find_all_transactions_by_amount(i.transactions, '273.55').size).to eq 1
+    expect(find_all_transactions_by_amount(i.transactions, '1600.96').size).to eq 1
   end
 end

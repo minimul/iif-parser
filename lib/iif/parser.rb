@@ -63,7 +63,7 @@ module Iif
     end
 
     def parse_data(fields)
-      return if @entries.last&.type == 'ENDTRNS' && fields[0] == 'ENDTRNS' # found a repeating ENDTRNS
+      return if (@entries.last&.type == 'ENDTRNS' || @entries.last&.type.nil?) && fields[0] == 'ENDTRNS' # found a repeating ENDTRNS
       definition = @definitions[fields[0]]
       entry = Entry.new
       entry.type = fields[0]
